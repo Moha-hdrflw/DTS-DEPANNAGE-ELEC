@@ -227,5 +227,5 @@
 
 /* Body bottom padding on mobile to avoid content hidden behind floating CTA */
 @media (max-width: 699px) {
-  body { padding-bottom: 90px; }
+  body { padding-bottom: 110px; }
 }

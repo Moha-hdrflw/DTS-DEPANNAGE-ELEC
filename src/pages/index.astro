@@ -281,7 +281,7 @@ const avis = [
     <div style="max-width:1100px;margin:0 auto;">
       <div style="text-align:center;margin-bottom:2.5rem;">
         <p style="color:#b8d400;font-size:0.82rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin:0 0 0.5rem;text-shadow:0 0 8px rgba(184,212,0,0.5);">DÉPANNAGE UNIQUEMENT</p>
-        <h2 class="section-title">Nos interventions</h2>
+        <a href="/depannage-electricite/" style="text-decoration:none;"><h2 class="section-title" style="cursor:pointer;">Nos interventions</h2></a>
         <p style="color:#6a9a7a;font-size:0.95rem;max-width:500px;margin:0.5rem auto 0;">
           Tous types de pannes électriques — logements, locaux professionnels, copropriétés.
         </p>
@@ -369,7 +369,8 @@ const avis = [
 
       <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;" class="zones-grid">
         {zones.map(z => (
-          <div class="card zone-card" style="padding:1.25rem;">
+          <a href="/zones/" style="text-decoration:none;" class="zone-card">
+          <div class="card" style="padding:1.25rem;height:100%;">
             <h3 style="color:#4ab3ff;font-size:0.9rem;font-weight:700;margin:0 0 0.75rem;text-shadow:0 0 8px rgba(74,179,255,0.5);">{z.region}</h3>
             <ul style="list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:0.4rem;">
               {z.villes.map(v => (
@@ -380,6 +381,7 @@ const avis = [
               ))}
             </ul>
           </div>
+          </a>
         ))}
       </div>
 
@@ -400,7 +402,7 @@ const avis = [
     <div style="max-width:1100px;margin:0 auto;">
       <div style="text-align:center;margin-bottom:2.5rem;">
         <p style="color:#b8d400;font-size:0.82rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin:0 0 0.5rem;text-shadow:0 0 8px rgba(184,212,0,0.5);">ZÉRO SURPRISE</p>
-        <h2 class="section-title">Tarifs transparents</h2>
+        <a href="/tarifs/" style="text-decoration:none;"><h2 class="section-title" style="cursor:pointer;">Tarifs transparents</h2></a>
         <p style="color:#6a9a7a;font-size:0.95rem;max-width:500px;margin:0.5rem auto 0;">
           Prix HT communiqués avant intervention. Devis signé avant tous travaux.
         </p>
@@ -615,12 +617,21 @@ const avis = [
 
       </div>
 
+      <!-- Nav links mobile (visible only on mobile) -->
+      <div style="border-top:1px solid rgba(184,212,0,0.12);padding-top:1.25rem;margin-bottom:1.25rem;display:grid;grid-template-columns:repeat(2,1fr);gap:0.625rem;" class="footer-mobile-nav">
+        <a href="/depannage-electricite/" style="display:block;background:rgba(184,212,0,0.07);border:1px solid rgba(184,212,0,0.15);border-radius:0.5rem;padding:0.75rem;text-align:center;color:#b8d400;font-size:0.88rem;font-weight:700;text-decoration:none;">⚡ Dépannage</a>
+        <a href="/tarifs/" style="display:block;background:rgba(184,212,0,0.07);border:1px solid rgba(184,212,0,0.15);border-radius:0.5rem;padding:0.75rem;text-align:center;color:#b8d400;font-size:0.88rem;font-weight:700;text-decoration:none;">📋 Tarifs</a>
+        <a href="/zones/" style="display:block;background:rgba(184,212,0,0.07);border:1px solid rgba(184,212,0,0.15);border-radius:0.5rem;padding:0.75rem;text-align:center;color:#b8d400;font-size:0.88rem;font-weight:700;text-decoration:none;">📍 Zones</a>
+        <a href="/contact/" style="display:block;background:rgba(184,212,0,0.07);border:1px solid rgba(184,212,0,0.15);border-radius:0.5rem;padding:0.75rem;text-align:center;color:#b8d400;font-size:0.88rem;font-weight:700;text-decoration:none;">📞 Contact</a>
+      </div>
+
       <!-- Bottom bar -->
       <div style="border-top:1px solid rgba(184,212,0,0.08);padding-top:1.25rem;display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:space-between;align-items:center;">
         <p style="color:#2a4a3a;font-size:0.75rem;margin:0;">
           © 2025 DTS Dépannage Elec — Déco Travaux Services. Entreprise française.
         </p>
-        <div style="display:flex;gap:1rem;">
+        <div style="display:flex;gap:1rem;" class="footer-bottom-links">
+          <a href="/depannage-electricite/" style="color:#2a4a3a;font-size:0.75rem;text-decoration:none;">Dépannage</a>
           <a href="/tarifs/" style="color:#2a4a3a;font-size:0.75rem;text-decoration:none;">Tarifs</a>
           <a href="/zones/" style="color:#2a4a3a;font-size:0.75rem;text-decoration:none;">Zones</a>
           <a href="/contact/" style="color:#2a4a3a;font-size:0.75rem;text-decoration:none;">Contact</a>
@@ -648,6 +659,7 @@ const avis = [
 
   /* Desktop 700px+: show nav links, 2-col hero, hero photo, hide mobile photo */
   @media (min-width: 700px) {
+    .footer-mobile-nav { display: none !important; }
     .nav-links         { display: flex !important; }
     .hero-cta-prefix   { display: inline !important; }
     .hero-grid         { grid-template-columns: 1fr 1fr !important; }
