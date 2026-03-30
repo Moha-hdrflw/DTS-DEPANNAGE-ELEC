@@ -1,0 +1,60 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+
+// ⚠️  À compléter par le client
+const PHONE_DISPLAY  = "06 XX XX XX XX";
+const PHONE_TEL      = "tel:+3306XXXXXXXX";
+const WHATSAPP_URL   = "https://wa.me/336XXXXXXXX";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "ElectricalContractor",
+  "name": "DTS Dépannage Elec",
+  "telephone": PHONE_DISPLAY,
+  "openingHours": "Mo-Su 00:00-24:00",
+  "priceRange": "€€",
+  "paymentAccepted": "Espèces, Carte bancaire",
+  "currenciesAccepted": "EUR",
+  "areaServed": [
+    { "@type": "AdministrativeArea", "name": "Pays de Gex" },
+    { "@type": "City", "name": "Annemasse" },
+    { "@type": "City", "name": "Thonon-les-Bains" },
+    { "@type": "City", "name": "Annecy" },
+    { "@type": "City", "name": "Bellegarde-sur-Valserine" }
+  ],
+  "description": "Électricien urgence 24h/24 7j/7 sur la zone frontalière franco-suisse. Tarif affiché, devis signé avant tous travaux."
+};
+---
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_FR" />
+    <!-- Schema.org -->
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </head>
+  <body
+    style="background-color:#060d16;color:#d0e8d0;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;margin:0;padding:0;-webkit-font-smoothing:antialiased;"
+  >
+    <slot />
+  </body>
+</html>

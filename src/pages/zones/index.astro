@@ -1,0 +1,300 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const PHONE_DISPLAY = "06 XX XX XX XX";
+const PHONE_TEL     = "tel:+3306XXXXXXXX";
+const WHATSAPP_URL  = "https://wa.me/336XXXXXXXX";
+
+const zones = [
+  {
+    region: "Pays de Gex (01)",
+    dept: "Ain",
+    desc: "Le cœur de notre zone d'intervention. Le Pays de Gex est une zone frontalière particulièrement dynamique, avec une forte densité de logements récents et une population en constante croissance.",
+    villes: ["Gex", "Ferney-Voltaire", "Saint-Genis-Pouilly", "Thoiry", "Divonne-les-Bains", "Échenevex", "Cessy", "Mijoux", "Prévessin-Moëns", "Ornex"],
+    slug: "electricien-urgence-gex",
+  },
+  {
+    region: "Annemasse + 40 km (74)",
+    dept: "Haute-Savoie",
+    desc: "Zone frontalière avec Genève, Annemasse et ses communes voisines constituent un bassin urbain dense avec de nombreuses copropriétés, immeubles et pavillons nécessitant des interventions électriques rapides.",
+    villes: ["Annemasse", "Ville-la-Grand", "Cranves-Sales", "Saint-Julien-en-Genevois", "Archamps", "Viry", "Valleiry", "Beaumont", "Collonges-sous-Salève", "Ambilly", "Gaillard"],
+    slug: "electricien-urgence-annemasse",
+  },
+  {
+    region: "Thonon-les-Bains + 20 km (74)",
+    dept: "Haute-Savoie — Chablais",
+    desc: "Grande ville du Chablais, Thonon-les-Bains et ses alentours regroupent de nombreux immeubles résidentiels, résidences touristiques et établissements professionnels bordant le lac Léman.",
+    villes: ["Thonon-les-Bains", "Douvaine", "Sciez", "Évian-les-Bains", "Publier", "Bons-en-Chablais", "Lully", "Massongy"],
+    slug: "electricien-urgence-thonon",
+  },
+  {
+    region: "Annecy + 40 km (74)",
+    dept: "Haute-Savoie — Capitale",
+    desc: "Capitale de la Haute-Savoie, Annecy et son agglomération constituent une zone très active avec une forte présence touristique, résidentielle et d'entreprises. Nous couvrons la ville et toutes ses communes périphériques.",
+    villes: ["Annecy", "Cran-Gevrier", "Seynod", "Meythet", "Pringy", "Épagny", "Poisy", "Annecy-le-Vieux", "Argonay"],
+    slug: "electricien-urgence-annecy",
+  },
+  {
+    region: "Bellegarde-sur-Valserine + 20 km (01)",
+    dept: "Ain",
+    desc: "Ville industrielle à la croisée des axes Lyon-Genève, Bellegarde-sur-Valserine et ses environs regroupent de nombreuses entreprises, logements collectifs et maisons individuelles dans un bassin de vie actif.",
+    villes: ["Bellegarde-sur-Valserine", "Châtillon-en-Michaille", "Injoux-Génissiat", "Lancrans", "Corbonod", "Billiat"],
+    slug: "electricien-urgence-bellegarde",
+  },
+];
+---
+
+<Layout
+  title="Zones d'Intervention Électricien Urgence — DTS Dépannage Elec"
+  description="DTS Dépannage Elec intervient sur tout le Pays de Gex, Annemasse, Thonon-les-Bains, Annecy et Bellegarde. Découvrez nos zones de couverture."
+>
+
+  <!-- BARRE URGENCE -->
+  <div style="position:sticky;top:0;z-index:50;background:rgba(6,13,22,0.97);border-bottom:1px solid rgba(184,212,0,0.25);backdrop-filter:blur(8px);">
+    <div style="max-width:1200px;margin:0 auto;padding:0.55rem 1rem;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0.5rem 1.25rem;text-align:center;">
+      <span style="display:flex;align-items:center;gap:0.4rem;font-size:0.8rem;color:#c8e0c8;">
+        <span class="pulse-dot"></span>
+        <span style="color:#b8d400;font-weight:700;">Disponible 24h/24 — 7j/7</span>
+      </span>
+      <span style="font-size:0.8rem;color:#c8e0c8;">⚡ Intervention rapide</span>
+      <span style="font-size:0.8rem;color:#c8e0c8;">Pays de Gex · Annemasse · Annecy · Thonon</span>
+      <a href={PHONE_TEL} style="background:#b8d400;color:#060d16;font-weight:800;padding:0.3rem 0.85rem;border-radius:0.4rem;font-size:0.82rem;text-decoration:none;white-space:nowrap;box-shadow:0 0 12px rgba(184,212,0,0.45);">
+        📞 {PHONE_DISPLAY}
+      </a>
+    </div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <nav style="background:rgba(6,13,22,0.95);border-bottom:1px solid rgba(184,212,0,0.08);backdrop-filter:blur(8px);">
+    <div style="max-width:1200px;margin:0 auto;padding:0.85rem 1.25rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;">
+      <a href="/" style="text-decoration:none;display:flex;align-items:center;gap:0.5rem;flex-shrink:0;">
+        <div style="background:#fff;border-radius:7px;padding:4px;flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+          <img src="/images/logo-dts.png" alt="DTS Dépannage Elec" width="54" height="42" style="width:54px;height:42px;object-fit:contain;display:block;transform:translateY(-2px);" />
+        </div>
+        <div>
+          <div style="color:#b8d400;font-weight:800;font-size:0.95rem;line-height:1.1;text-shadow:0 0 8px rgba(184,212,0,0.6);">DTS Dépannage</div>
+          <div style="color:#4a7a5a;font-size:0.72rem;line-height:1;">Elec · 24h/24</div>
+        </div>
+      </a>
+      <div style="display:none;gap:1.5rem;align-items:center;" class="nav-links">
+        <a href="/depannage-electricite/" style="color:#c8e0c8;text-decoration:none;font-size:0.88rem;" onmouseover="this.style.color='#b8d400'" onmouseout="this.style.color='#c8e0c8'">Dépannage</a>
+        <a href="/tarifs/" style="color:#c8e0c8;text-decoration:none;font-size:0.88rem;" onmouseover="this.style.color='#b8d400'" onmouseout="this.style.color='#c8e0c8'">Tarifs</a>
+        <a href="/zones/" style="color:#b8d400;text-decoration:none;font-size:0.88rem;font-weight:600;">Zones</a>
+        <a href="/contact/" style="color:#c8e0c8;text-decoration:none;font-size:0.88rem;" onmouseover="this.style.color='#b8d400'" onmouseout="this.style.color='#c8e0c8'">Contact</a>
+      </div>
+      <a href={PHONE_TEL} class="btn-cta" style="padding:0.6rem 1rem;font-size:0.85rem;white-space:nowrap;flex-shrink:0;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+        </svg>
+        <span class="nav-phone-hide">Appeler — </span>{PHONE_DISPLAY}
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section style="padding:3.5rem 1.25rem 4rem;background:linear-gradient(160deg,#060d16 0%,#071408 60%,#060d16 100%);text-align:center;">
+    <div style="max-width:800px;margin:0 auto;">
+      <p style="color:#b8d400;font-size:0.82rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin:0 0 0.75rem;">ZONE FRANCO-SUISSE</p>
+      <h1 style="font-size:clamp(1.75rem,5vw,2.8rem);font-weight:900;line-height:1.15;margin:0 0 1.25rem;color:#f0f8f0;">
+        Zones d'Intervention —<br>
+        <span class="neon-green">Électricien Urgence Franco-Suisse</span>
+      </h1>
+      <p style="font-size:1.05rem;color:#8ab89a;margin:0 0 2rem;line-height:1.7;max-width:640px;margin-left:auto;margin-right:auto;">
+        DTS Dépannage Elec est le <strong style="color:#c8e0c8;">seul prestataire à couvrir toute la zone frontalière franco-suisse</strong>
+        avec un tarif affiché. Proximité Genève, intervention dans tout le Pays de Gex, Annemasse, Thonon,
+        Annecy et Bellegarde. <strong style="color:#c8e0c8;">Entreprise française — pas d'intervention en Suisse.</strong>
+      </p>
+      <a href={PHONE_TEL} class="btn-cta" style="font-size:1.1rem;padding:1.1rem 2rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+        </svg>
+        Appelez maintenant — {PHONE_DISPLAY}
+      </a>
+    </div>
+  </section>
+
+  <!-- ZONES DÉTAILLÉES -->
+  <section style="padding:4rem 1.25rem;background:#060d16;">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:2.5rem;">
+        <h2 class="section-title">Nos 5 zones de couverture</h2>
+        <p style="color:#6a9a7a;font-size:0.95rem;max-width:520px;margin:0.5rem auto 0;">
+          Cliquez sur une zone pour voir les pages dédiées à chaque ville principale.
+        </p>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:1.5rem;">
+        {zones.map((z, i) => (
+          <div class="card" style="padding:2rem;">
+            <div style="display:flex;flex-wrap:wrap;gap:1rem;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;">
+              <div>
+                <h2 style="color:#4ab3ff;font-size:1.25rem;font-weight:800;margin:0 0 0.25rem;text-shadow:0 0 8px rgba(74,179,255,0.5);">{z.region}</h2>
+                <p style="color:#4a7a5a;font-size:0.82rem;margin:0;">{z.dept}</p>
+              </div>
+              <a href={`/${z.slug}/`} style="color:#b8d400;font-size:0.82rem;text-decoration:none;background:rgba(184,212,0,0.08);border:1px solid rgba(184,212,0,0.25);padding:0.4rem 0.875rem;border-radius:0.4rem;white-space:nowrap;">
+                Voir la page →
+              </a>
+            </div>
+            <p style="color:#8ab89a;font-size:0.9rem;line-height:1.65;margin:0 0 1rem;">{z.desc}</p>
+            <div>
+              <p style="color:#6a9a7a;font-size:0.8rem;margin:0 0 0.5rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;">Villes couvertes :</p>
+              <ul style="list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:0.5rem;">
+                {z.villes.map(v => (
+                  <li style="display:flex;align-items:center;gap:0.3rem;font-size:0.82rem;color:#8ab89a;background:rgba(184,212,0,0.05);border:1px solid rgba(184,212,0,0.1);padding:0.2rem 0.6rem;border-radius:0.35rem;">
+                    <span style="width:5px;height:5px;background:#b8d400;border-radius:50%;flex-shrink:0;box-shadow:0 0 4px rgba(184,212,0,0.7);"></span>
+                    {v}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Note Suisse -->
+      <div style="margin-top:2rem;background:rgba(74,179,255,0.06);border:1px solid rgba(74,179,255,0.2);border-radius:0.875rem;padding:1.5rem;text-align:center;">
+        <p style="color:#6a9a7a;font-size:0.9rem;margin:0;line-height:1.6;">
+          <span style="color:#4ab3ff;font-weight:700;">ℹ️ Information importante</span><br>
+          DTS Dépannage Elec est une <strong style="color:#c8e0c8;">entreprise française</strong>.
+          Nous n'intervenons <strong style="color:#c8e0c8;">pas en Suisse</strong>.
+          Notre proximité avec Genève est un atout pour nos clients frontaliers côté français —
+          mais nos interventions restent exclusivement sur le territoire français.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- VILLES SEO GRID -->
+  <section style="padding:4rem 1.25rem;background:linear-gradient(180deg,#060d16 0%,#040c0a 100%);">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:2.5rem;">
+        <h2 class="section-title">Villes principales desservies</h2>
+        <p style="color:#6a9a7a;font-size:0.95rem;max-width:500px;margin:0.5rem auto 0;">
+          Pages dédiées à nos principales villes d'intervention.
+        </p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:0.875rem;">
+        {[
+          { ville: "Gex", slug: "electricien-urgence-gex", dept: "01" },
+          { ville: "Ferney-Voltaire", slug: "electricien-urgence-ferney-voltaire", dept: "01" },
+          { ville: "Saint-Genis-Pouilly", slug: "electricien-urgence-saint-genis-pouilly", dept: "01" },
+          { ville: "Thoiry", slug: "electricien-urgence-thoiry", dept: "01" },
+          { ville: "Divonne-les-Bains", slug: "electricien-urgence-divonne", dept: "01" },
+          { ville: "Annemasse", slug: "electricien-urgence-annemasse", dept: "74" },
+          { ville: "Saint-Julien-en-Genevois", slug: "electricien-urgence-saint-julien", dept: "74" },
+          { ville: "Thonon-les-Bains", slug: "electricien-urgence-thonon", dept: "74" },
+          { ville: "Annecy", slug: "electricien-urgence-annecy", dept: "74" },
+          { ville: "Bellegarde-sur-Valserine", slug: "electricien-urgence-bellegarde", dept: "01" },
+        ].map(v => (
+          <a href={`/${v.slug}/`} style="display:block;text-decoration:none;" class="card">
+            <div style="padding:1rem 1.25rem;display:flex;align-items:center;justify-content:space-between;gap:0.5rem;">
+              <div>
+                <div style="color:#c8e0c8;font-size:0.88rem;font-weight:600;">{v.ville}</div>
+                <div style="color:#4a7a5a;font-size:0.75rem;">({v.dept})</div>
+              </div>
+              <span style="color:#b8d400;font-size:0.8rem;">→</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section style="padding:4rem 1.25rem;background:linear-gradient(135deg,#1a2e00 0%,#0f2400 50%,#0a1e00 100%);border-top:1px solid rgba(184,212,0,0.2);border-bottom:1px solid rgba(184,212,0,0.2);">
+    <div style="max-width:700px;margin:0 auto;text-align:center;">
+      <div style="display:inline-flex;align-items:center;gap:0.5rem;margin-bottom:1.25rem;">
+        <span class="pulse-dot"></span>
+        <span style="color:#b8d400;font-weight:700;font-size:0.9rem;">Disponible maintenant — Réponse immédiate</span>
+      </div>
+      <h2 style="font-size:clamp(1.75rem,4vw,2.5rem);font-weight:900;color:#f0f8f0;margin:0 0 0.75rem;">Votre ville n'est pas listée ?</h2>
+      <p style="color:#8ab89a;font-size:1.05rem;margin:0 0 2rem;line-height:1.6;">
+        Appelez-nous — nous couvrons toute la zone frontalière et ferons notre possible pour intervenir chez vous.
+      </p>
+      <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+        <a href={PHONE_TEL} class="btn-cta" style="font-size:1.2rem;padding:1.1rem 2.25rem;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+          </svg>
+          {PHONE_DISPLAY}
+        </a>
+        <a href={WHATSAPP_URL} class="btn-whatsapp" style="font-size:1.1rem;padding:1.1rem 2rem;">
+          💬 WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOUTON FLOTTANT MOBILE -->
+  <div class="floating-cta" role="complementary" aria-label="Appel rapide">
+    <a href={PHONE_TEL} class="tel">📞 {PHONE_DISPLAY}</a>
+    <a href={WHATSAPP_URL} class="wa">💬 WhatsApp</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer style="background:#030a0f;border-top:1px solid rgba(184,212,0,0.1);padding:3rem 1.25rem 2rem;">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;margin-bottom:2rem;">
+        <div>
+          <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.875rem;">
+            <div style="background:#fff;border-radius:7px;padding:4px;flex-shrink:0;display:flex;align-items:center;justify-content:center;">
+              <img src="/images/logo-dts.png" alt="DTS Dépannage Elec" width="48" height="38" style="width:48px;height:38px;object-fit:contain;display:block;transform:translateY(-2px);" />
+            </div>
+            <div>
+              <div style="color:#b8d400;font-weight:800;font-size:0.9rem;text-shadow:0 0 6px rgba(184,212,0,0.5);">DTS Dépannage Elec</div>
+              <div style="color:#4a7a5a;font-size:0.7rem;">Urgence 24h/24 — 7j/7</div>
+            </div>
+          </div>
+          <p style="color:#4a7a5a;font-size:0.82rem;line-height:1.6;margin:0;">Électricien urgence sur la zone franco-suisse. Tarif affiché, devis avant travaux.</p>
+        </div>
+        <div>
+          <h3 style="color:#b8d400;font-size:0.85rem;font-weight:700;margin:0 0 0.875rem;text-transform:uppercase;letter-spacing:0.08em;">Interventions</h3>
+          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.4rem;">
+            {["Panne générale", "Disjoncteur sauté", "Tableau électrique", "Prises & éclairage", "Mise en sécurité", "Urgence pro"].map(s => (
+              <li style="color:#4a7a5a;font-size:0.82rem;">{s}</li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h3 style="color:#b8d400;font-size:0.85rem;font-weight:700;margin:0 0 0.875rem;text-transform:uppercase;letter-spacing:0.08em;">Zones</h3>
+          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.4rem;">
+            {["Pays de Gex (01)", "Annemasse +40 km", "Thonon +20 km", "Annecy +40 km", "Bellegarde +20 km"].map(z => (
+              <li style="color:#4a7a5a;font-size:0.82rem;">{z}</li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h3 style="color:#b8d400;font-size:0.85rem;font-weight:700;margin:0 0 0.875rem;text-transform:uppercase;letter-spacing:0.08em;">Contact</h3>
+          <div style="display:flex;flex-direction:column;gap:0.5rem;">
+            <a href={PHONE_TEL} style="color:#c8e0c8;font-size:0.88rem;text-decoration:none;display:flex;align-items:center;gap:0.4rem;">📞 <span>{PHONE_DISPLAY}</span></a>
+            <a href={WHATSAPP_URL} style="color:#c8e0c8;font-size:0.88rem;text-decoration:none;display:flex;align-items:center;gap:0.4rem;">💬 <span>WhatsApp</span></a>
+            <div style="display:flex;align-items:center;gap:0.4rem;margin-top:0.25rem;">
+              <span class="pulse-dot" style="width:7px;height:7px;"></span>
+              <span style="color:#b8d400;font-size:0.82rem;font-weight:600;">Disponible maintenant</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="border-top:1px solid rgba(184,212,0,0.08);padding-top:1.25rem;display:flex;flex-wrap:wrap;gap:0.75rem;justify-content:space-between;align-items:center;">
+        <p style="color:#2a4a3a;font-size:0.75rem;margin:0;">© 2025 DTS Dépannage Elec — Déco Travaux Services. Entreprise française.</p>
+        <div style="display:flex;gap:1rem;">
+          <a href="/tarifs/" style="color:#2a4a3a;font-size:0.75rem;text-decoration:none;">Tarifs</a>
+          <a href="/zones/" style="color:#2a4a3a;font-size:0.75rem;text-decoration:none;">Zones</a>
+          <a href="/contact/" style="color:#2a4a3a;font-size:0.75rem;text-decoration:none;">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</Layout>
+
+<style>
+  .nav-phone-hide { display: none; }
+  @media (min-width: 700px) {
+    .nav-links { display: flex !important; }
+  }
+  @media (min-width: 900px) {
+    .nav-phone-hide { display: inline !important; }
+  }
+</style>
