@@ -227,10 +227,12 @@
 
 /* Body bottom padding on mobile to avoid content hidden behind floating CTA */
 @media (max-width: 699px) {
-  body { padding-bottom: 130px; }
+  body { padding-bottom: 160px !important; }
   .footer-bottom-links {
-    flex-direction: column !important;
-    gap: 0.5rem !important;
-    align-items: flex-end;
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.4rem 1rem !important;
+    width: 100%;
+    margin-top: 0.5rem;
   }
 }
