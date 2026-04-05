@@ -1,14 +1,13 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const PHONE_DISPLAY = "06 XX XX XX XX";
-const PHONE_TEL     = "tel:+3306XXXXXXXX";
-const WHATSAPP_URL  = "https://wa.me/336XXXXXXXX";
+const PHONE_DISPLAY = "09 80 80 25 21";
+const PHONE_TEL     = "tel:0980802521";
 ---
 
 <Layout
   title="Contact Électricien Urgence — DTS Dépannage Elec | Appel Direct 24h/24"
-  description="Contactez DTS Dépannage Elec pour toute urgence électrique 24h/24 7j/7. Appelez directement ou envoyez un message WhatsApp. Réponse immédiate."
+  description="Contactez DTS Dépannage Elec pour toute urgence électrique 24h/24 7j/7. Appelez directement — réponse immédiate. 09 80 80 25 21."
 >
 
   <!-- BARRE URGENCE -->
@@ -66,7 +65,7 @@ const WHATSAPP_URL  = "https://wa.me/336XXXXXXXX";
       </h1>
       <p style="font-size:1.05rem;color:#8ab89a;margin:0 0 2.5rem;line-height:1.7;">
         Pas de formulaire. Pas d'email. <strong style="color:#c8e0c8;">Contact direct uniquement.</strong><br>
-        Pour toute urgence électrique, appelez-nous ou envoyez un WhatsApp — réponse immédiate.
+        Pour toute urgence électrique, appelez-nous directement — réponse immédiate.
       </p>
 
       <!-- Boutons contact -->
@@ -76,13 +75,6 @@ const WHATSAPP_URL  = "https://wa.me/336XXXXXXXX";
             <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
           </svg>
           Appeler — {PHONE_DISPLAY}
-        </a>
-        <a href={WHATSAPP_URL} class="btn-whatsapp" style="font-size:1.15rem;padding:1.2rem 2.25rem;width:100%;justify-content:center;">
-          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="white">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.104 1.524 5.828L.057 23.5l5.83-1.449A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.848 0-3.574-.504-5.055-1.383l-.363-.215-3.754.932.975-3.651-.236-.376A9.948 9.948 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
-          </svg>
-          Message WhatsApp
         </a>
       </div>
 
@@ -109,7 +101,7 @@ const WHATSAPP_URL  = "https://wa.me/336XXXXXXXX";
           {
             step: "01",
             title: "Vous appelez",
-            desc: "Vous nous contactez par téléphone ou WhatsApp. Réponse immédiate — nous écoutons votre situation et évaluons l'urgence.",
+            desc: "Vous nous contactez par téléphone. Réponse immédiate — nous écoutons votre situation et évaluons l'urgence.",
             icon: "📞"
           },
           {
@@ -177,7 +169,7 @@ const WHATSAPP_URL  = "https://wa.me/336XXXXXXXX";
             },
             {
               q: "Puis-je envoyer un message plutôt qu'appeler ?",
-              a: "Oui, WhatsApp est disponible. Pour les urgences, l'appel direct reste la meilleure option pour une réponse immédiate."
+              a: "Pour les urgences, l'appel direct reste la seule option garantissant une réponse immédiate. Appelez-nous directement au 09 80 80 25 21."
             },
             {
               q: "Acceptez-vous les urgences professionnelles ?",
@@ -213,9 +205,6 @@ const WHATSAPP_URL  = "https://wa.me/336XXXXXXXX";
           </svg>
           {PHONE_DISPLAY}
         </a>
-        <a href={WHATSAPP_URL} class="btn-whatsapp" style="font-size:1.1rem;padding:1.1rem 2rem;">
-          💬 WhatsApp
-        </a>
       </div>
     </div>
   </section>
@@ -223,7 +212,6 @@ const WHATSAPP_URL  = "https://wa.me/336XXXXXXXX";
   <!-- BOUTON FLOTTANT MOBILE -->
   <div class="floating-cta" role="complementary" aria-label="Appel rapide">
     <a href={PHONE_TEL} class="tel">📞 {PHONE_DISPLAY}</a>
-    <a href={WHATSAPP_URL} class="wa">💬 WhatsApp</a>
   </div>
 
   <!-- FOOTER -->
@@ -262,7 +250,6 @@ const WHATSAPP_URL  = "https://wa.me/336XXXXXXXX";
           <h3 style="color:#b8d400;font-size:0.85rem;font-weight:700;margin:0 0 0.875rem;text-transform:uppercase;letter-spacing:0.08em;">Contact</h3>
           <div style="display:flex;flex-direction:column;gap:0.5rem;">
             <a href={PHONE_TEL} style="color:#c8e0c8;font-size:0.88rem;text-decoration:none;display:flex;align-items:center;gap:0.4rem;">📞 <span>{PHONE_DISPLAY}</span></a>
-            <a href={WHATSAPP_URL} style="color:#c8e0c8;font-size:0.88rem;text-decoration:none;display:flex;align-items:center;gap:0.4rem;">💬 <span>WhatsApp</span></a>
             <div style="display:flex;align-items:center;gap:0.4rem;margin-top:0.25rem;">
               <span class="pulse-dot" style="width:7px;height:7px;"></span>
               <span style="color:#b8d400;font-size:0.82rem;font-weight:600;">Disponible maintenant</span>

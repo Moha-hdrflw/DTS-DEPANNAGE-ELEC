@@ -1,9 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-const PHONE_DISPLAY = "06 XX XX XX XX";
-const PHONE_TEL     = "tel:+3306XXXXXXXX";
-const WHATSAPP_URL  = "https://wa.me/336XXXXXXXX";
+const PHONE_DISPLAY = "09 80 80 25 21";
+const PHONE_TEL     = "tel:0980802521";
 
 const zones = [
   {
@@ -219,9 +218,6 @@ const zones = [
           </svg>
           {PHONE_DISPLAY}
         </a>
-        <a href={WHATSAPP_URL} class="btn-whatsapp" style="font-size:1.1rem;padding:1.1rem 2rem;">
-          💬 WhatsApp
-        </a>
       </div>
     </div>
   </section>
@@ -229,7 +225,6 @@ const zones = [
   <!-- BOUTON FLOTTANT MOBILE -->
   <div class="floating-cta" role="complementary" aria-label="Appel rapide">
     <a href={PHONE_TEL} class="tel">📞 {PHONE_DISPLAY}</a>
-    <a href={WHATSAPP_URL} class="wa">💬 WhatsApp</a>
   </div>
 
   <!-- FOOTER -->
@@ -268,7 +263,6 @@ const zones = [
           <h3 style="color:#b8d400;font-size:0.85rem;font-weight:700;margin:0 0 0.875rem;text-transform:uppercase;letter-spacing:0.08em;">Contact</h3>
           <div style="display:flex;flex-direction:column;gap:0.5rem;">
             <a href={PHONE_TEL} style="color:#c8e0c8;font-size:0.88rem;text-decoration:none;display:flex;align-items:center;gap:0.4rem;">📞 <span>{PHONE_DISPLAY}</span></a>
-            <a href={WHATSAPP_URL} style="color:#c8e0c8;font-size:0.88rem;text-decoration:none;display:flex;align-items:center;gap:0.4rem;">💬 <span>WhatsApp</span></a>
             <div style="display:flex;align-items:center;gap:0.4rem;margin-top:0.25rem;">
               <span class="pulse-dot" style="width:7px;height:7px;"></span>
               <span style="color:#b8d400;font-size:0.82rem;font-weight:600;">Disponible maintenant</span>

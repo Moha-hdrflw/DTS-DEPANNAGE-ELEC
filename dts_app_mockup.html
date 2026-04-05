@@ -1,0 +1,666 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  :root {
+    --bg: #0a0a0f;
+    --surface: #13131a;
+    --surface2: #1c1c27;
+    --border: #2a2a3a;
+    --accent: #c8f135;
+    --accent2: #7c3aed;
+    --text: #f0f0f5;
+    --muted: #6b6b80;
+    --danger: #ff4757;
+    --success: #2ed573;
+  }
+
+  body {
+    background: var(--bg);
+    font-family: 'Syne', sans-serif;
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 32px;
+    padding: 24px;
+    flex-wrap: wrap;
+  }
+
+  .phone-frame {
+    width: 375px;
+    min-height: 720px;
+    background: var(--surface);
+    border-radius: 40px;
+    border: 2px solid var(--border);
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.05);
+    flex-shrink: 0;
+  }
+
+  .phone-notch {
+    width: 120px;
+    height: 28px;
+    background: var(--bg);
+    border-radius: 0 0 20px 20px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+  }
+
+  .screen {
+    padding: 0 0 100px;
+    overflow-y: auto;
+    max-height: 700px;
+  }
+
+  /* HEADER */
+  .header {
+    padding: 16px 20px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .logo {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+  }
+
+  .logo span {
+    color: var(--accent);
+  }
+
+  .badge {
+    background: var(--accent);
+    color: #000;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 20px;
+    font-family: 'Space Mono', monospace;
+  }
+
+  /* DASHBOARD STATS */
+  .stats-bar {
+    padding: 16px 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+  }
+
+  .stat-card {
+    background: var(--surface2);
+    border-radius: 14px;
+    padding: 12px 10px;
+    border: 1px solid var(--border);
+    text-align: center;
+  }
+
+  .stat-value {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--accent);
+    font-family: 'Space Mono', monospace;
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 9px;
+    color: var(--muted);
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* CTA BUTTON */
+  .cta-wrap {
+    padding: 0 20px 16px;
+  }
+
+  .btn-new {
+    width: 100%;
+    background: var(--accent);
+    color: #000;
+    border: none;
+    border-radius: 16px;
+    padding: 16px;
+    font-size: 15px;
+    font-weight: 800;
+    font-family: 'Syne', sans-serif;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    letter-spacing: -0.3px;
+  }
+
+  .btn-new::before {
+    content: '+';
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1;
+  }
+
+  /* SECTION TITLE */
+  .section-title {
+    padding: 0 20px 10px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--muted);
+    font-weight: 600;
+  }
+
+  /* INTERVENTION CARD */
+  .intervention-list {
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .card {
+    background: var(--surface2);
+    border-radius: 16px;
+    padding: 14px;
+    border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--accent);
+    border-radius: 3px 0 0 3px;
+  }
+
+  .card.cash::before { background: var(--success); }
+  .card.pending::before { background: var(--danger); }
+
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+  }
+
+  .client-name {
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  .amount {
+    font-family: 'Space Mono', monospace;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  .card-meta {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .tag {
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 8px;
+    font-weight: 600;
+    background: rgba(255,255,255,0.06);
+    color: var(--muted);
+    font-family: 'Space Mono', monospace;
+  }
+
+  .tag.cb { background: rgba(124,58,237,0.2); color: #a78bfa; }
+  .tag.cash { background: rgba(46,213,115,0.15); color: var(--success); }
+  .tag.sms-ok { background: rgba(200,241,53,0.12); color: var(--accent); }
+  .tag.sms-pending { background: rgba(255,71,87,0.15); color: var(--danger); }
+
+  .card-time {
+    font-size: 10px;
+    color: var(--muted);
+    font-family: 'Space Mono', monospace;
+    margin-left: auto;
+  }
+
+  /* BOTTOM NAV */
+  .bottom-nav {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    display: flex;
+    padding: 12px 0 20px;
+  }
+
+  .nav-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--muted);
+    cursor: pointer;
+  }
+
+  .nav-item.active { color: var(--accent); }
+
+  .nav-icon {
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  /* DIVIDER */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 12px 20px;
+  }
+
+  /* LABEL */
+  .screen-label {
+    text-align: center;
+    font-size: 11px;
+    color: var(--muted);
+    padding: 8px;
+    font-family: 'Space Mono', monospace;
+    letter-spacing: 1px;
+  }
+
+  /* SECOND PHONE - FORM VIEW */
+  .form-section {
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .form-title {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 4px;
+  }
+
+  .form-title span { color: var(--accent); }
+
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .input-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--muted);
+    font-weight: 600;
+  }
+
+  .input-field {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 13px 14px;
+    color: var(--text);
+    font-size: 14px;
+    font-family: 'Syne', sans-serif;
+    font-weight: 500;
+    outline: none;
+    width: 100%;
+  }
+
+  .input-field.filled {
+    border-color: rgba(200,241,53,0.3);
+    background: rgba(200,241,53,0.04);
+  }
+
+  .input-field::placeholder { color: var(--muted); }
+
+  .row2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .payment-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .pay-btn {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 13px;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 700;
+    font-family: 'Syne', sans-serif;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s;
+  }
+
+  .pay-btn.selected {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(200,241,53,0.08);
+  }
+
+  .sms-toggle {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .sms-info { flex: 1; }
+  .sms-title { font-size: 13px; font-weight: 700; margin-bottom: 2px; }
+  .sms-sub { font-size: 10px; color: var(--muted); }
+
+  .toggle {
+    width: 44px;
+    height: 24px;
+    background: var(--accent);
+    border-radius: 12px;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .toggle::after {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background: #000;
+    border-radius: 50%;
+    top: 3px;
+    right: 3px;
+  }
+
+  .btn-submit {
+    background: var(--accent);
+    color: #000;
+    border: none;
+    border-radius: 16px;
+    padding: 17px;
+    font-size: 15px;
+    font-weight: 800;
+    font-family: 'Syne', sans-serif;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 4px;
+  }
+
+  /* DESKTOP LABEL */
+  .desktop-label {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-family: 'Space Mono', monospace;
+    align-self: center;
+    opacity: 0.4;
+  }
+</style>
+</head>
+<body>
+
+<!-- PHONE 1 : DASHBOARD -->
+<div>
+  <div class="screen-label">VUE DASHBOARD</div>
+  <div class="phone-frame">
+    <div class="phone-notch"></div>
+    <div class="screen">
+      
+      <div class="header">
+        <div class="logo">DTS<span>.</span></div>
+        <div class="badge">JEUDI 19 MARS</div>
+      </div>
+
+      <div class="stats-bar">
+        <div class="stat-card">
+          <div class="stat-value">4</div>
+          <div class="stat-label">Interventions</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">980€</div>
+          <div class="stat-label">CA jour</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">3/4</div>
+          <div class="stat-label">SMS envoyés</div>
+        </div>
+      </div>
+
+      <div class="cta-wrap">
+        <button class="btn-new">Nouvelle intervention</button>
+      </div>
+
+      <div class="section-title">Aujourd'hui</div>
+
+      <div class="intervention-list">
+
+        <div class="card">
+          <div class="card-top">
+            <div class="client-name">Mohamed A.</div>
+            <div class="amount">320€</div>
+          </div>
+          <div class="card-meta">
+            <span class="tag">Tableau élec.</span>
+            <span class="tag cb">CB</span>
+            <span class="tag sms-ok">✓ SMS envoyé</span>
+            <span class="card-time">14:32</span>
+          </div>
+        </div>
+
+        <div class="card cash">
+          <div class="card-top">
+            <div class="client-name">Sophie M.</div>
+            <div class="amount">180€</div>
+          </div>
+          <div class="card-meta">
+            <span class="tag">Disjoncteur</span>
+            <span class="tag cash">CASH</span>
+            <span class="tag sms-ok">✓ SMS envoyé</span>
+            <span class="card-time">11:15</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <div class="client-name">Pierre D.</div>
+            <div class="amount">260€</div>
+          </div>
+          <div class="card-meta">
+            <span class="tag">Prise + câblage</span>
+            <span class="tag cb">CB</span>
+            <span class="tag sms-ok">✓ SMS envoyé</span>
+            <span class="card-time">09:40</span>
+          </div>
+        </div>
+
+        <div class="card pending">
+          <div class="card-top">
+            <div class="client-name">Immeuble Lancy</div>
+            <div class="amount">220€</div>
+          </div>
+          <div class="card-meta">
+            <span class="tag">Panne générale</span>
+            <span class="tag cash">CASH</span>
+            <span class="tag sms-pending">⏳ SMS J+1</span>
+            <span class="card-time">08:05</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="divider"></div>
+      <div class="section-title">Cette semaine</div>
+      <div class="stats-bar">
+        <div class="stat-card">
+          <div class="stat-value">18</div>
+          <div class="stat-label">Interventions</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">4.2K€</div>
+          <div class="stat-label">CA semaine</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">14</div>
+          <div class="stat-label">Avis demandés</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="bottom-nav">
+      <div class="nav-item active">
+        <span class="nav-icon">⚡</span>
+        <span>Dashboard</span>
+      </div>
+      <div class="nav-item">
+        <span class="nav-icon">👥</span>
+        <span>Clients</span>
+      </div>
+      <div class="nav-item">
+        <span class="nav-icon">📊</span>
+        <span>Stats</span>
+      </div>
+      <div class="nav-item">
+        <span class="nav-icon">⚙️</span>
+        <span>Config</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PHONE 2 : FORM -->
+<div>
+  <div class="screen-label">VUE SAISIE INTERVENTION</div>
+  <div class="phone-frame">
+    <div class="phone-notch"></div>
+    <div class="screen">
+
+      <div class="header">
+        <div class="logo">DTS<span>.</span></div>
+        <div class="badge">+ NOUVELLE</div>
+      </div>
+
+      <div class="form-section">
+
+        <div>
+          <div class="form-title">Nouvelle<br><span>intervention</span></div>
+        </div>
+
+        <div class="input-group">
+          <div class="input-label">Nom du client</div>
+          <input class="input-field filled" value="Jean-Pierre V." readonly>
+        </div>
+
+        <div class="input-group">
+          <div class="input-label">Téléphone</div>
+          <input class="input-field filled" value="+41 76 123 45 67" readonly>
+        </div>
+
+        <div class="input-group">
+          <div class="input-label">Adresse</div>
+          <input class="input-field filled" value="12 Rue de Rive, Genève" readonly>
+        </div>
+
+        <div class="input-group">
+          <div class="input-label">Type de panne</div>
+          <input class="input-field filled" value="Tableau électrique HS" readonly>
+        </div>
+
+        <div class="row2">
+          <div class="input-group">
+            <div class="input-label">Montant (€)</div>
+            <input class="input-field filled" value="340" readonly>
+          </div>
+          <div class="input-group">
+            <div class="input-label">Paiement</div>
+            <div class="payment-row" style="grid-template-columns:1fr 1fr; gap:6px;">
+              <div class="pay-btn selected">CB</div>
+              <div class="pay-btn">Cash</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sms-toggle">
+          <div class="sms-info">
+            <div class="sms-title">SMS avis Google</div>
+            <div class="sms-sub">Envoi auto après validation</div>
+          </div>
+          <div class="toggle"></div>
+        </div>
+
+        <div class="sms-toggle">
+          <div class="sms-info">
+            <div class="sms-title">SMS suivi J+1</div>
+            <div class="sms-sub">Programmé pour demain 10h</div>
+          </div>
+          <div class="toggle"></div>
+        </div>
+
+        <button class="btn-submit">✓ Valider l'intervention</button>
+
+      </div>
+
+    </div>
+
+    <div class="bottom-nav">
+      <div class="nav-item">
+        <span class="nav-icon">⚡</span>
+        <span>Dashboard</span>
+      </div>
+      <div class="nav-item">
+        <span class="nav-icon">👥</span>
+        <span>Clients</span>
+      </div>
+      <div class="nav-item">
+        <span class="nav-icon">📊</span>
+        <span>Stats</span>
+      </div>
+      <div class="nav-item">
+        <span class="nav-icon">⚙️</span>
+        <span>Config</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
