@@ -77,6 +77,12 @@
 }
 .btn-cta:active { transform: translateY(0); }
 
+/* Sur mobile : masque le préfixe textuel des boutons d'appel pour éviter le retour à la ligne */
+@media (max-width: 699px) {
+  .cta-prefix { display: none; }
+  .btn-cta { font-size: 1rem; padding: 1rem 1.25rem; }
+}
+
 /* WhatsApp button */
 .btn-whatsapp {
   display: inline-flex;
