@@ -210,16 +210,35 @@
 
 .floating-cta a {
   flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
   text-align: center;
   padding: 0.75rem 0.4rem;
   border-radius: 0.5rem;
   font-weight: 800;
-  font-size: 0.82rem;
+  font-size: 0.95rem;
   text-decoration: none;
   line-height: 1.2;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+}
+
+/* Point bleu clignotant dans le bouton flottant */
+.blue-pulse-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4ab3ff;
+  box-shadow: 0 0 8px #4ab3ff;
+  flex-shrink: 0;
+  animation: blue-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes blue-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
 }
 
 .floating-cta .tel {
