@@ -67,6 +67,7 @@
   padding: 1rem 1.75rem;
   font-size: 1.05rem;
   line-height: 1.2;
+  white-space: nowrap;
   text-decoration: none;
   transition: box-shadow 0.25s ease, transform 0.2s ease;
   box-shadow: 0 0 22px rgba(184, 212, 0, 0.55), 0 0 50px rgba(184, 212, 0, 0.2);
@@ -76,19 +77,8 @@
   transform: translateY(-2px);
 }
 .btn-cta:active { transform: translateY(0); }
-
-/* Sur mobile : numéro de téléphone non sécable */
-.phone-nowrap { white-space: nowrap; }
 @media (max-width: 699px) {
-  .btn-cta {
-    font-size: 0.95rem;
-    padding: 0.85rem 1.25rem;
-    flex-direction: column;
-    gap: 0.1rem;
-    line-height: 1.3;
-  }
-  .cta-prefix { font-size: 0.8rem; opacity: 0.85; }
-  .phone-nowrap { font-size: 1.05rem; font-weight: 900; }
+  .btn-cta { font-size: 0.92rem; padding: 1rem 1.25rem; }
 }
 
 /* WhatsApp button */
